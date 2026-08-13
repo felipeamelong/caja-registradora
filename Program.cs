@@ -9,10 +9,14 @@ Console.WriteLine();
 int CantidadProductos = 0;
 decimal TotalVenta = 0;
 decimal TotalDescuento = 0;
+decimal TotalRecargo = 0;
 decimal TotalNeto = 0;
+decimal RecargoCredito = 0.15m;
 decimal Descuento50000 = 0.1m;
+decimal DescuentoEfectivo = 0.1m;
 decimal Descuento20000 = 0.05m;
 int decision = 1;
+int medio = 0;
 do
 {
 
@@ -50,8 +54,38 @@ do
             {
                 TotalNeto = TotalVenta;
             }
-            Console.WriteLine();
-            Console.WriteLine($"Carga finalizada por hoy.\nCantidad de productos: {CantidadProductos}\nSubtotal de la venta: ${TotalVenta}\nDescuentos obtenidos: (${TotalDescuento})\nNeto a pagar: ${TotalNeto}");
+
+            do
+            {
+                Console.WriteLine();
+                Console.WriteLine("Medio de pago:\n1 - Efectivo\n2 - Débito\n3 - Crédito");
+                medio = int.Parse(Console.ReadLine());
+                switch (medio)
+                {
+                    case 1:
+                    {
+                        TotalDescuento += TotalVenta * DescuentoEfectivo;
+                        TotalNeto = TotalVenta - TotalDescuento;
+                        break;
+                    }
+                    case 2:
+                    {
+                        TotalNeto = TotalVenta - TotalDescuento;
+                        break;
+                    }
+                    case 3:
+                    {
+                        TotalRecargo = TotalVenta * RecargoCredito;
+                        break;
+                    }
+                    default:
+                    {
+                        Console.WriteLine("Opción no válida");
+                        break;
+                    }
+                }
+            } while (medio != 1 && medio != 2 && medio != 3);
+            Console.WriteLine($"Carga finalizada por hoy.\nCantidad de productos: {CantidadProductos}\nSubtotal de la venta: ${TotalVenta}\nDescuentos obtenidos: (${TotalDescuento})\nRecargo: ${TotalRecargo}\nNeto a pagar: ${TotalNeto}");
             break;
         }
         default:
