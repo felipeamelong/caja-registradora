@@ -43,18 +43,11 @@ do
             if (TotalVenta > 50000)
             {
                 TotalDescuento = TotalVenta * Descuento50000;
-                TotalNeto = TotalVenta - TotalDescuento;
             }
             else if (TotalVenta > 20000)
             {
                 TotalDescuento = TotalVenta * Descuento20000;
-                TotalNeto = TotalVenta - TotalDescuento;
             }
-            else
-            {
-                TotalNeto = TotalVenta;
-            }
-
             do
             {
                 Console.WriteLine();
@@ -76,6 +69,7 @@ do
                     case 3:
                     {
                         TotalRecargo = TotalVenta * RecargoCredito;
+                        TotalNeto = TotalVenta + TotalRecargo - TotalDescuento;
                         break;
                     }
                     default:
