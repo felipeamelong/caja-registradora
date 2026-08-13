@@ -6,6 +6,7 @@ Console.WriteLine($"{NombreKiosco}");
 Console.WriteLine($"Bienvenido, {NombreCajero}. Caja abierta");
 Console.WriteLine();
 int CantidadProductos = 0;
+decimal TotalVenta = 0;
 int decision = 1;
 do
 {
@@ -22,14 +23,16 @@ do
             string NombreProducto = Console.ReadLine();
             Console.Write("Ingrese el precio del producto: ");
             decimal PrecioProducto = decimal.Parse(Console.ReadLine());
+            TotalVenta += PrecioProducto;
             Console.WriteLine();
-            Console.WriteLine($"El producto {NombreProducto} tiene un precio de ${PrecioProducto}");
+            Console.WriteLine($"Producto {NombreProducto} cargado con éxito.\nSubtotal de la venta: ${TotalVenta}");
             Console.WriteLine();
             break;
         }
         case 2:
         {
-            Console.Write($"Trabajo finalizado por hoy. Se cargaron {CantidadProductos} productos.");
+            Console.WriteLine();
+            Console.WriteLine($"Carga finalizada por hoy.\nCantidad de productos: {CantidadProductos}\nTotal de la venta: ${TotalVenta}" );
             break;
         }
         default:
