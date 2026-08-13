@@ -79,7 +79,33 @@ do
                     }
                 }
             } while (medio != 1 && medio != 2 && medio != 3);
-            Console.WriteLine($"Carga finalizada por hoy.\nCantidad de productos: {CantidadProductos}\nSubtotal de la venta: ${TotalVenta}\nDescuentos obtenidos: (${TotalDescuento})\nRecargo: ${TotalRecargo}\nNeto a pagar: ${TotalNeto}");
+            for (int i = 0; i < 30; i++)
+            {
+                Console.Write("-");
+            }
+            Console.WriteLine();
+            Console.WriteLine(NombreKiosco);
+            for (int i = 0; i < 30; i++)
+            {
+                Console.Write("-");
+            }
+            Console.WriteLine();
+            Console.WriteLine($"Cajero: {NombreCajero}");
+            Console.WriteLine($"Productos: {CantidadProductos}");
+            Console.WriteLine($"Subtotal: ${TotalVenta}");
+            Console.WriteLine($"Descuento: (${TotalDescuento})");
+            Console.WriteLine($"Recargo: ${TotalRecargo}");
+            for (int i = 0; i < 30; i++)
+            {
+                Console.Write("-");
+            }
+            Console.WriteLine();
+            Console.WriteLine($"TOTAL: ${TotalNeto}");
+            for (int i = 0; i < 30; i++)
+            {
+                Console.Write("-");
+            }
+            Console.WriteLine();
             break;
         }
         default:
